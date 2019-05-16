@@ -1,4 +1,4 @@
-package com.office.user.Controller;
+package com.office.user.controller;
 
 import com.office.user.entity.OfficeUser;
 import com.office.user.service.OfficeUserService;
@@ -6,17 +6,17 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
+@RequestMapping("office/user")
 @RestController
-@RequestMapping("/office/user")
 public class UserController {
     @Resource
     private OfficeUserService officeUserService;
 
-    @PostMapping
+    @PostMapping("/reg")
     public Integer reg(@RequestBody OfficeUser officeUser) {
+        Integer s;
+        s = 10;
         Integer userId = officeUserService.insert(officeUser);
-        return userId;
+        return s;
     }
-
-
 }

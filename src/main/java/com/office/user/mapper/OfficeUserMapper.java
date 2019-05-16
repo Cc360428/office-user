@@ -1,8 +1,8 @@
 package com.office.user.mapper;
 
 import com.office.user.entity.OfficeUser;
-
-
+import org.apache.ibatis.annotations.Mapper;
+@Mapper
 public interface OfficeUserMapper {
     int deleteByPrimaryKey(Integer id);
 
