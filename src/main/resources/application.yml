@@ -1,5 +1,19 @@
+#========================server配置====================================================================================#
+server:
+  port: 8090
+#========================mysql数据库配置===============================================================================#
 spring:
   application:
-    name: office-server
-  profiles:
-    active: ${env}
+    name: office-user
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8&autoReconnect=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#========================mybatis映射配置===============================================================================#
+mybatis:
+  typeAliasesPackage: com.office.user
+  mapperLocations: classpath:mapper/*.xml
+  configuration:
+    mapUnderscoreToCamelCase: true
+

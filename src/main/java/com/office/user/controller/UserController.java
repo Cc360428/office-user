@@ -6,17 +6,23 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
-@RequestMapping("office/user")
+
 @RestController
+@RequestMapping("office/user")
 public class UserController {
     @Resource
     private OfficeUserService officeUserService;
 
+    public UserController() {
+        System.out.println("asdfasdfasdf");
+    }
+
     @PostMapping("/reg")
-    public Integer reg(@RequestBody OfficeUser officeUser) {
+    public Integer reg() {
+        System.out.println("asdfasdfasd");
         Integer s;
         s = 10;
-        Integer userId = officeUserService.insert(officeUser);
+
         return s;
     }
 }
