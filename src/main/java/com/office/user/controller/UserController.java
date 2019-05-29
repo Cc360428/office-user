@@ -18,11 +18,9 @@ public class UserController {
     }
 
     @PostMapping("/reg")
-    public Integer reg() {
-        System.out.println("asdfasdfasd");
-        Integer s;
-        s = 10;
-
-        return s;
+    public Integer reg(OfficeUser user) {
+        int a ;
+        a = officeUserService.insert(user);
+        return a;
     }
 }
