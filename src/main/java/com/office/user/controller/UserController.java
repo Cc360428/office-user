@@ -2,6 +2,8 @@ package com.office.user.controller;
 
 import com.office.user.entity.OfficeUser;
 import com.office.user.service.OfficeUserService;
+import com.office.user.utils.ResponseResult;
+import org.apache.catalina.User;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -13,14 +15,13 @@ public class UserController {
     @Resource
     private OfficeUserService officeUserService;
 
-    public UserController() {
-        System.out.println("asdfasdfasdf");
-    }
-
     @PostMapping("/reg")
-    public Integer reg(OfficeUser user) {
-        int a ;
+    public ResponseResult<Integer> reg(@RequestBody OfficeUser user) {
+        Integer a;
         a = officeUserService.insert(user);
-        return a;
+        ResponseResult<Integer> rr = new ResponseResult<Integer>();
+        rr.setMessage("注册成功");
+        rr.setData(a);
+        return rr;
     }
 }

@@ -53,6 +53,9 @@ public class OfficeUser {
 
     private String token;
 
+    public OfficeUser() {
+    }
+
     public Integer getId() {
         return id;
     }
@@ -251,5 +254,64 @@ public class OfficeUser {
 
     public void setToken(String token) {
         this.token = token == null ? null : token.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "OfficeUser{" +
+                "id=" + id +
+                ", account='" + account + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", salt='" + salt + '\'' +
+                ", alipay='" + alipay + '\'' +
+                ", wechat='" + wechat + '\'' +
+                ", relaname='" + relaname + '\'' +
+                ", sex=" + sex +
+                ", age=" + age +
+                ", invitation='" + invitation + '\'' +
+                ", idcare='" + idcare + '\'' +
+                ", address='" + address + '\'' +
+                ", residence='" + residence + '\'' +
+                ", birthday=" + birthday +
+                ", marital=" + marital +
+                ", nationa='" + nationa + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", createName='" + createName + '\'' +
+                ", updateName='" + updateName + '\'' +
+                ", isDelete=" + isDelete +
+                ", token='" + token + '\'' +
+                '}';
+    }
+
+    public OfficeUser(Integer id, String account, String mobile, String email, String password, String salt, String alipay, String wechat, String relaname, Byte sex, Byte age, String invitation, String idcare, String address, String residence, Date birthday, Byte marital, String nationa, String avatar, Date createTime, Date updateTime, String createName, String updateName, Byte isDelete, String token) {
+        this.id = id;
+        this.account = account;
+        this.mobile = mobile;
+        this.email = email;
+        this.password = password;
+        this.salt = salt;
+        this.alipay = alipay;
+        this.wechat = wechat;
+        this.relaname = relaname;
+        this.sex = sex;
+        this.age = age;
+        this.invitation = invitation;
+        this.idcare = idcare;
+        this.address = address;
+        this.residence = residence;
+        this.birthday = birthday;
+        this.marital = marital;
+        this.nationa = nationa;
+        this.avatar = avatar;
+        this.createTime = createTime;
+        this.updateTime = updateTime;
+        this.createName = createName;
+        this.updateName = updateName;
+        this.isDelete = isDelete;
+        this.token = token;
     }
 }

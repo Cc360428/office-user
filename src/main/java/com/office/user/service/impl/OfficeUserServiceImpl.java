@@ -15,6 +15,7 @@ public class OfficeUserServiceImpl implements OfficeUserService {
 
     @Override
     public int insert(OfficeUser record) {
+        System.out.println("Service"+record.toString());
         return officeUserMapper.insert(record);
     }
 }
