@@ -27,6 +27,24 @@ public class User {
 
     private String updateName;
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", account='" + account + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", salt='" + salt + '\'' +
+                ", createTime=" + createTime +
+                ", token='" + token + '\'' +
+                ", isDelete=" + isDelete +
+                ", updateTime=" + updateTime +
+                ", createName='" + createName + '\'' +
+                ", updateName='" + updateName + '\'' +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }
