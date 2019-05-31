@@ -2,6 +2,8 @@ package com.office.user.service;
 
 import com.office.user.entity.User;
 
+import java.util.List;
+
 public interface UserService {
     /**
      * reg
@@ -9,4 +11,6 @@ public interface UserService {
      * @return
      */
     Integer insert(User record);
+
+    List<User> userAll();
 }

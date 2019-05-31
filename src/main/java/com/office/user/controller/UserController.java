@@ -7,10 +7,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
+import java.util.List;
 
 
 @RestController
-@RequestMapping("office/user")
+@RequestMapping("/user")
 public class UserController {
     private static Logger logger = LoggerFactory.getLogger(UserController.class);
 
@@ -27,6 +28,15 @@ public class UserController {
         rr.setMessage("注册成功");
         logger.info("注册结束");
         rr.setData(a);
+        return rr;
+    }
+    @PostMapping("/user/all")
+    public ResponseResult<List<User>> userAll(@RequestBody User user) {
+        logger.info("获取所有数据");
+        ResponseResult<List<User>> rr = new ResponseResult<>();
+        rr.setData(userService.userAll());
+        rr.setMessage("成功！");
+        logger.info("获取所有数据成功！");
         return rr;
     }
 }

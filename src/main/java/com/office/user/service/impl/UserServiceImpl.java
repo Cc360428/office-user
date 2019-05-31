@@ -5,6 +5,7 @@ import com.office.user.mapper.UserMapper;
 import com.office.user.service.UserService;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -16,5 +17,11 @@ public class UserServiceImpl implements UserService {
         int rowNumber;
         rowNumber = userMapper.insert(record);
         return rowNumber;
+    }
+
+    @Override
+    public List<User> userAll() {
+        List<User> user = userMapper.userAll();
+        return user;
     }
 }

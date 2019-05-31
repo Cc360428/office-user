@@ -7,14 +7,13 @@ spring:
     name: office-user
   datasource:
 #   本地数据库
-#    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8&autoReconnect=true
-#    username: root
-#    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8&autoReconnect=true
+    username: root
+    password: 123456
 #   远程数据库
-    datasource:
-    url: jdbc:mysql://120.79.250.62:9936/test?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8&autoReconnect=true
-    username: shareaio
-    password: zhly@2015
+#    url: jdbc:mysql://120.79.250.62:9936/test?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8&autoReconnect=true
+#    username: shareaio
+#    password: zhly@2015
     driver-class-name: com.mysql.cj.jdbc.Driver
 #========================mybatis映射配置===============================================================================#
 mybatis:
