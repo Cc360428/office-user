@@ -29,27 +29,21 @@ public class ExcelUtil {
 
         //声明一个工作簿
         HSSFWorkbook workbook = new HSSFWorkbook();
-
         //生成一个表格，设置表格名称
         HSSFSheet sheet = workbook.createSheet(sheetName);
-
         //设置表格列宽度
         sheet.setDefaultColumnWidth(columnWidth);
-
         //写入List<List<String>>中的数据
         int rowIndex = 0;
         for (List<String> data : excelData) {
             //创建一个row行，然后自增1
             HSSFRow row = sheet.createRow(rowIndex++);
-
             //遍历添加本行数据
             for (int i = 0; i < data.size(); i++) {
                 //创建一个单元格
                 HSSFCell cell = row.createCell(i);
-
                 //创建一个内容对象
                 HSSFRichTextString text = new HSSFRichTextString(data.get(i));
-
                 //将内容对象的文字内容写入到单元格中
                 cell.setCellValue(text);
             }
