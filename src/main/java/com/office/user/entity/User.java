@@ -1,8 +1,13 @@
 package com.office.user.entity;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.Date;
 
+@ApiModel(description = "user")
 public class User {
+    @ApiModelProperty(value = "主键id", hidden = true)
     private Integer id;
 
     private String account;
