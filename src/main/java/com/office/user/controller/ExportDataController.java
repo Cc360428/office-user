@@ -13,11 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
+/**
+ * Excel表格导入
+ */
 @RestController
 @RequestMapping("/utils/excel")
 public class ExportDataController {
@@ -27,7 +28,7 @@ public class ExportDataController {
     private UserService userService;
 
     public ExportDataController() {
-        logger.info("进入此类");
+        logger.info("Excel");
     }
 
     /**
@@ -56,12 +57,8 @@ public class ExportDataController {
             a.add(user.get(i).getEmail());
             excelData.add(a);
         }
-//        设置工作谱
         String sheetName = "Sheet1";
-
         String fileName = Help.date() + "_user" + ".xls";
         ExcelUtil.exportExcel(response, excelData, sheetName, fileName, 15);
     }
-
-
 }

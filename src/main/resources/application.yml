@@ -26,10 +26,25 @@ mybatis:
   configuration:
     mapUnderscoreToCamelCase: true
   #=========================邮箱配置（我这里使用163）==============================================================================#
+
+#  mail:
+#  host: smtp.163.cn
+#  username: li_chao_cheng@163.com
+#  password: Cc360428
+#  port: 25
+#  default-encoding: UTF-8
+#  protool: stmp
+#  properties:
+#    mail:
+#      smth:
+#        auth: true
+#        strttls:
+#          enable: true
+#          required: true
   mail:
     host: smtp.163.com                 #邮箱服务器地址
     username: li_chao_cheng@163.com  #邮箱账号
-    password: lichaocheng            #邮箱密码
+    password: Cc360428            #邮箱密码
     default-encoding: utf-8          #默认编码
     #    properties:
     #      smtp:

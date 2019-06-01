@@ -37,8 +37,8 @@ public class UserController {
         return rr;
     }
 
-    @PostMapping("/user/all")
-    public ResponseResult<List<User>> userAll(@RequestBody User user) {
+    @PostMapping("/all")
+    public ResponseResult<List<User>> userAll() {
         logger.info("获取所有数据");
         ResponseResult<List<User>> rr = new ResponseResult<>();
         rr.setData(userService.userAll());
