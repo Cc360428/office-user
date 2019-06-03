@@ -13,8 +13,11 @@ import java.io.*;
 import java.util.List;
 
 /**
- * Hyper-Li
- * 文件单个多个上传下载
+ * @author Hyper-Li
+ * @title: FileController
+ * @projectName office-user
+ * @description: 文件单个多个上传下载
+ * @date 2019.06.3.00039:54
  */
 @RestController
 @RequestMapping("file")
