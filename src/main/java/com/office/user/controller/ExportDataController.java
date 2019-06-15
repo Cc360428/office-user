@@ -20,7 +20,7 @@ import java.util.List;
  * @author Hyper-Li
  * @title: ExportDataController
  * @projectName office-user
- * @description: Excel表格导入
+ * @description: Excel表格导出
  * @date 2019.06.1.000117:22
  */
 @RestController
