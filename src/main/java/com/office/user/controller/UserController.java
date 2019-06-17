@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
-@Api(value="用户操作接口",tags={"用户操作接口"})
+@Api(value = "用户操作接口", tags = {"用户操作接口"})
 public class UserController {
 
     private static Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -27,13 +27,14 @@ public class UserController {
 
     @Resource
     private UserService userService;
-    @ApiOperation(value="添加用户", notes="test")
+
+    @ApiOperation(value = "添加用户", notes = "test")
     @PostMapping("/reg")
-    public ResponseResult<Integer> reg(@RequestBody @ApiParam(name="用户对象",value="传入json格式",required=true) User user) {
+    public ResponseResult<Integer> reg(@RequestBody @ApiParam(name = "用户对象", value = "传入json格式", required = true) User user) {
         logger.info("注册开始 user = {}", user.toString());
         user.setCreateName(user.getAccount());
         user.setIsDelete(1);
-        Integer a = userService.insert(user);
+        Integer a = userService.reg(user);
         ResponseResult<Integer> rr = new ResponseResult<>();
         rr.setMessage("注册成功");
         logger.info("注册结束");

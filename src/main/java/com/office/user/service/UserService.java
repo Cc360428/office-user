@@ -11,7 +11,14 @@ public interface UserService {
      * @param record 实体
      * @return
      */
-    Integer insert(User record);
+    Integer reg(User record);
+
+    /**
+     * 插入
+     *
+     * @param record
+     */
+    void insert(User record);
 
     /**
      * 获取所有数据
