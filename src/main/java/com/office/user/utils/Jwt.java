@@ -73,17 +73,4 @@ public class Jwt {
             return null;
         }
     }
-
-
-//    public static void main(String[] args) {
-//        String createToken;
-//        createToken = sign("lcc", "lcc");
-//        System.out.println("生成的token：" + createToken);
-//        String getToken;
-//        getToken = getUsername(createToken);
-//        System.out.println("获取token中的值：" + getToken);
-//        boolean ver;
-//        ver = verify(createToken, "lcc", "lcc");
-//        System.out.println("判断token中的用户名密码是否正确：" + ver);
-//    }
 }
