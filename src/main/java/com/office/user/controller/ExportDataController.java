@@ -24,7 +24,7 @@ import java.util.List;
  * @date 2019.06.1.000117:22
  */
 @RestController
-@RequestMapping("/utils/excel")
+@RequestMapping("/api/utils/excel")
 public class ExportDataController {
     private static Logger logger = LoggerFactory.getLogger(UserController.class);
 

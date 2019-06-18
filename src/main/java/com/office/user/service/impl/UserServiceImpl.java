@@ -1,6 +1,5 @@
 package com.office.user.service.impl;
 
-import com.office.user.controller.UserController;
 import com.office.user.entity.User;
 import com.office.user.mapper.UserMapper;
 import com.office.user.service.UserService;
@@ -20,18 +19,21 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Integer reg(User record) {
-        int rowNumber;
-        rowNumber = userMapper.insert(record);
-        return rowNumber;
+        insert(record);
+        //TODO 需要异常处理、之后完善
+        logger.info("添加要异常处理");
+        return 1;
     }
 
     @Override
     public void insert(User record) {
-        //获取随机盐值
-        String salt;
-        salt = Help.getRandomSalt();
-        logger.info("获取随机盐值" + salt);
-
+        String salt = Help.getRandomSalt();
+        String saltMD5 = Help.getMD5(salt);
+        record.setSalt(saltMD5);
+        String passwordMD5 = Help.getMD5(record.getPassword());
+        String passwordAndSaltMd5 = Help.encrypt(passwordMD5, saltMD5);
+        record.setPassword(passwordAndSaltMd5);
+        userMapper.insert(record);
     }
 
     @Override

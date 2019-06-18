@@ -20,6 +20,8 @@ public interface UserService {
      */
     void insert(User record);
 
+
+
     /**
      * 获取所有数据
      *

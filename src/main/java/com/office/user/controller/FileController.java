@@ -21,7 +21,7 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("file")
+@RequestMapping("/api/file")
 public class FileController {
     private static final Logger log = LoggerFactory.getLogger(FileController.class);
 
