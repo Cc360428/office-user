@@ -10,7 +10,7 @@ import java.util.Objects;
  * @date 2019.06.22.002215:43
  */
 public class EmailUtil {
-    //发送邮箱
+    //发送邮箱Test
     private String meail;
 
     @Override
