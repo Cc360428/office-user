@@ -12,7 +12,7 @@ import java.util.Date;
  * @author Hyper-Li
  * @title: Jwt
  * @projectName office-user
- * @description: TODO
+ * @description:
  * @date 2019.06.17.001720:35
  */
 public class Jwt {
@@ -73,4 +73,4 @@ public class Jwt {
             return null;
         }
     }
-}
+    }

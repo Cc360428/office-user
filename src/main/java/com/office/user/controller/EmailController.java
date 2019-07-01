@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Hyper-Li
  * @title: EmailController
  * @projectName office-user
- * @description: TODO
+ * @description: 邮箱
  * @date 2019.06.22.002215:40
  */
 @RestController
@@ -30,9 +30,7 @@ public class EmailController {
     @RequestMapping("/code")
     public ResponseResult<Void> emailCode(@RequestBody EmailUtil email) {
         logger.info("接收参数：" + email.getMeail());
-
         ResponseResult<Void> rr = new ResponseResult<>();
-
         return rr;
     }
 }

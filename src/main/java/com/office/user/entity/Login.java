@@ -6,7 +6,7 @@ import java.util.Objects;
  * @author Hyper-Li
  * @title: Login
  * @projectName office-user
- * @description: TODO
+ * @description:
  * @date 2019.06.18.001810:01
  */
 public class Login {

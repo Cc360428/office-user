@@ -3,11 +3,13 @@ package com.office.user.controller;
 import com.office.user.entity.Login;
 import com.office.user.entity.User;
 import com.office.user.service.UserService;
+import com.office.user.utils.RedisUtil;
 import com.office.user.utils.ResponseResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,15 +57,26 @@ public class UserController {
         return rr;
     }
 
+    @Resource
+    private RedisUtil redisUtil;
+
+
     /**
      * 登录接口
+     *
      * @param login 登录参数
      * @return
      */
     @PostMapping("/login")
     public ResponseResult<String> login(@RequestBody Login login) {
         ResponseResult<String> rr = new ResponseResult<>();
-        logger.info("获取登录参数："+login.toString());
+        // TODO 测试redis
+        
+//        redisUtil.setKey("name", "test");
+//        redisUtil.setKey("age", "11");
+//        logger.info(redisUtil.getValue("name"));
+//        logger.info(redisUtil.getValue("age"));
+        logger.info("获取登录参数：" + login.toString());
         rr.setData("login.toString()");
         rr.setMessage("登录成功！");
         logger.info("获取所有数据成功！");
