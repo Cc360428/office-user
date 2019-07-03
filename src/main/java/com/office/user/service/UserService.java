@@ -21,6 +21,7 @@ public interface UserService {
     void insert(User record);
 
 
+    User getOneByAccount(String account);
 
     /**
      * 获取所有数据

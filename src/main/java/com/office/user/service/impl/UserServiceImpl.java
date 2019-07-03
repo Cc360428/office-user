@@ -41,4 +41,11 @@ public class UserServiceImpl implements UserService {
         List<User> user = userMapper.userAll();
         return user;
     }
+
+    @Override
+    public User getOneByAccount(String account) {
+        User user;
+        user = userMapper.getOneByAccount(account);
+        return user;
+    }
 }

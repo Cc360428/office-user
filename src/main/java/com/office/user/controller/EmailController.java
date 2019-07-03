@@ -24,8 +24,6 @@ public class EmailController {
     public EmailController() {
         logger.info("邮箱验证码接口");
     }
-//    @Autowired
-//    private JavaMailSender mailSender;
 
     @RequestMapping("/code")
     public ResponseResult<Void> emailCode(@RequestBody EmailUtil email) {

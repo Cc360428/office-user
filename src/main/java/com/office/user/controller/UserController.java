@@ -68,18 +68,27 @@ public class UserController {
      * @return
      */
     @PostMapping("/login")
-    public ResponseResult<String> login(@RequestBody Login login) {
-        ResponseResult<String> rr = new ResponseResult<>();
+    public ResponseResult<User> login(@RequestBody Login login) {
+        ResponseResult<User> rr = new ResponseResult<>();
+        String account = login.getAccount();
+        //判断用户名是否存在
+        User user = userService.getOneByAccount(account);
+        if (user == null) {
+            rr.fail("没有用户名", null);
+            return rr;
+        }
+        //判断两次输入的密码是否一致
+        if (!login.getPassword().equals(login.getConfirmPassword())){
+            rr.fail("两次输入的密码不一致！", null);
+            return rr;
+        }
+        //判断用户名密码是否正确
+
         // TODO 测试redis
-        
-//        redisUtil.setKey("name", "test");
-//        redisUtil.setKey("age", "11");
-//        logger.info(redisUtil.getValue("name"));
-//        logger.info(redisUtil.getValue("age"));
         logger.info("获取登录参数：" + login.toString());
-        rr.setData("login.toString()");
-        rr.setMessage("登录成功！");
-        logger.info("获取所有数据成功！");
+        rr.success("登录成功", user);
+        //登录成功发送token
+        //把token 保存到redis中
         return rr;
     }
 }
