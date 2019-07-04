@@ -27,11 +27,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void insert(User record) {
+        //获取盐值
         String salt = Help.getRandomSalt();
+        //加密盐值
         String saltMD5 = Help.getMD5(salt);
+        //保存加密后的盐值
         record.setSalt(saltMD5);
+        //加密明文密码
         String passwordMD5 = Help.getMD5(record.getPassword());
+        //密文密码与密文盐值加密
         String passwordAndSaltMd5 = Help.encrypt(passwordMD5, saltMD5);
+        //保存两这加密
         record.setPassword(passwordAndSaltMd5);
         userMapper.insert(record);
     }

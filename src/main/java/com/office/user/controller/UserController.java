@@ -3,19 +3,20 @@ package com.office.user.controller;
 import com.office.user.entity.Login;
 import com.office.user.entity.User;
 import com.office.user.service.UserService;
+import com.office.user.utils.Help;
 import com.office.user.utils.RedisUtil;
 import com.office.user.utils.ResponseResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 
@@ -39,6 +40,7 @@ public class UserController {
         logger.info("注册开始 user = {}", user.toString());
         user.setCreateName(user.getAccount());
         user.setIsDelete(1);
+        user.setCreateTime(new Date());
         Integer a = userService.reg(user);
         ResponseResult<Integer> rr = new ResponseResult<>();
         rr.setMessage("注册成功");
@@ -78,12 +80,21 @@ public class UserController {
             return rr;
         }
         //判断两次输入的密码是否一致
-        if (!login.getPassword().equals(login.getConfirmPassword())){
+        if (!login.getPassword().equals(login.getConfirmPassword())) {
             rr.fail("两次输入的密码不一致！", null);
             return rr;
         }
         //判断用户名密码是否正确
-
+        //操作明文，与数据库的密码比较
+        String lPassword = Help.getMD5(login.getConfirmPassword());
+        String p = Help.encrypt(lPassword, user.getSalt());
+        logger.info(user.getPassword());
+        logger.info(p);
+        if (!p.equals(user.getPassword())) {
+            rr.fail("密码输出错误，登录失败!", null);
+            return rr;
+        }
+        //生成token
         // TODO 测试redis
         logger.info("获取登录参数：" + login.toString());
         rr.success("登录成功", user);
