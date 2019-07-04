@@ -2,6 +2,7 @@ package com.office.user.mapper;
 
 import com.office.user.entity.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 

@@ -1,7 +1,5 @@
 package com.office.user.entity;
 
-import io.swagger.annotations.ApiModel;
-
 import java.util.Date;
 
 public class User {

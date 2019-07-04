@@ -1,7 +1,9 @@
 package com.office.user.controller;
 
+import com.office.user.annotation.UserLoginToken;
 import com.office.user.entity.Login;
 import com.office.user.entity.User;
+import com.office.user.service.TokenServer;
 import com.office.user.service.UserService;
 import com.office.user.utils.Help;
 import com.office.user.utils.RedisUtil;
@@ -49,6 +51,8 @@ public class UserController {
         return rr;
     }
 
+    //使用token判断用户是登录
+    @UserLoginToken
     @PostMapping("/all")
     public ResponseResult<List<User>> userAll() {
         logger.info("获取所有数据");
@@ -61,7 +65,8 @@ public class UserController {
 
     @Resource
     private RedisUtil redisUtil;
-
+    @Resource
+    private TokenServer tokenServer;
 
     /**
      * 登录接口
@@ -70,8 +75,8 @@ public class UserController {
      * @return
      */
     @PostMapping("/login")
-    public ResponseResult<User> login(@RequestBody Login login) {
-        ResponseResult<User> rr = new ResponseResult<>();
+    public ResponseResult<String> login(@RequestBody Login login) {
+        ResponseResult<String> rr = new ResponseResult<>();
         String account = login.getAccount();
         //判断用户名是否存在
         User user = userService.getOneByAccount(account);
@@ -88,16 +93,16 @@ public class UserController {
         //操作明文，与数据库的密码比较
         String lPassword = Help.getMD5(login.getConfirmPassword());
         String p = Help.encrypt(lPassword, user.getSalt());
-        logger.info(user.getPassword());
-        logger.info(p);
         if (!p.equals(user.getPassword())) {
             rr.fail("密码输出错误，登录失败!", null);
             return rr;
         }
-        //生成token
+        //生成token 登录成共保存token
+        String token = tokenServer.getToken(user);
+
+
         // TODO 测试redis
-        logger.info("获取登录参数：" + login.toString());
-        rr.success("登录成功", user);
+        rr.success("登录成功", token);
         //登录成功发送token
         //把token 保存到redis中
         return rr;

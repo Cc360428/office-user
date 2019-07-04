@@ -29,4 +29,8 @@ public interface UserService {
      * @return 返回所有数据
      */
     List<User> userAll();
+
+
+    User selectByPrimaryKey(Integer id);
+
 }
