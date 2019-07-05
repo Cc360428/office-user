@@ -68,6 +68,7 @@ public class UserController {
     @Resource
     private TokenServer tokenServer;
 
+
     /**
      * 登录接口
      *
@@ -99,7 +100,8 @@ public class UserController {
         }
         //生成token 登录成共保存token
         String token = tokenServer.getToken(user);
-
+////
+//        redisUtil.setKey("redis", token);
 
         // TODO 测试redis
         rr.success("登录成功", token);
@@ -107,4 +109,6 @@ public class UserController {
         //把token 保存到redis中
         return rr;
     }
+
+
 }
