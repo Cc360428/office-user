@@ -12,10 +12,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -23,6 +20,7 @@ import java.util.List;
 
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api/user")
 @Api(value = "用户操作接口", tags = {"用户操作接口"})
 public class UserController {
@@ -77,6 +75,7 @@ public class UserController {
      */
     @PostMapping("/login")
     public ResponseResult<String> login(@RequestBody Login login) {
+        logger.info(login.toString());
         ResponseResult<String> rr = new ResponseResult<>();
         String account = login.getAccount();
         //判断用户名是否存在
@@ -85,14 +84,10 @@ public class UserController {
             rr.fail("没有用户名", null);
             return rr;
         }
-        //判断两次输入的密码是否一致
-        if (!login.getPassword().equals(login.getConfirmPassword())) {
-            rr.fail("两次输入的密码不一致！", null);
-            return rr;
-        }
+
         //判断用户名密码是否正确
         //操作明文，与数据库的密码比较
-        String lPassword = Help.getMD5(login.getConfirmPassword());
+        String lPassword = Help.getMD5(login.getPassword());
         String p = Help.encrypt(lPassword, user.getSalt());
         if (!p.equals(user.getPassword())) {
             rr.fail("密码输出错误，登录失败!", null);

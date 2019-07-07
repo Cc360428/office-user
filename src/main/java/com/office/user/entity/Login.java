@@ -12,48 +12,6 @@ import java.util.Objects;
 public class Login {
     private String account;
     private String password;
-    private String confirmPassword;
-
-    @Override
-    public String toString() {
-        return "Login{" +
-                "account='" + account + '\'' +
-                ", password='" + password + '\'' +
-                ", confirmPassword='" + confirmPassword + '\'' +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Login login = (Login) o;
-        return account.equals(login.account) &&
-                password.equals(login.password) &&
-                confirmPassword.equals(login.confirmPassword);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(account, password, confirmPassword);
-    }
-
-    public String getPassword() {
-
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
 
     public String getAccount() {
         return account;
@@ -61,5 +19,42 @@ public class Login {
 
     public void setAccount(String account) {
         this.account = account;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Login() {
+        super();
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
     }
 }
