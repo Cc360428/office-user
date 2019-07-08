@@ -18,7 +18,13 @@ import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
-
+/**
+ * @author Hyper-Li
+ * @title: UserController
+ * @projectName office-user
+ * @description: 用户接口
+ * @date 2019.07.8.000814:09
+ */
 @RestController
 @CrossOrigin
 @RequestMapping("/api/user")
@@ -95,7 +101,6 @@ public class UserController {
         }
         //生成token 登录成共保存token
         String token = tokenServer.getToken(user);
-////
 //        redisUtil.setKey("redis", token);
 
         // TODO 测试redis

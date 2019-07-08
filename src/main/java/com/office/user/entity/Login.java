@@ -1,12 +1,10 @@
 package com.office.user.entity;
 
-import java.util.Objects;
-
 /**
  * @author Hyper-Li
  * @title: Login
  * @projectName office-user
- * @description:
+ * @description: 登录参数
  * @date 2019.06.18.001810:01
  */
 public class Login {

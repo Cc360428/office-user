@@ -1,7 +1,12 @@
 package com.office.user.entity;
 
 import java.util.Date;
-
+/**
+ * 用户实体类
+ * @author Hyper-Li
+ * @param
+ * @return
+ */
 public class User {
 
     private Integer id;

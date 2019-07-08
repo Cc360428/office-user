@@ -10,12 +10,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @author Hyper-Li
  * @title: InterceptorConfig
  * @projectName office-user
- * @description: TODO
+ * @description: 拦截器配置类
  * @date 2019.07.4.000414:03
  */
 @Configuration
 public class InterceptorConfig implements WebMvcConfigurer {
-    // TODO 配置拦截器
+    // TODO
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(authenticationInterceptor())

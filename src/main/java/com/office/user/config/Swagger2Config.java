@@ -14,7 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @author Hyper-Li
  * @title: Swagger2Config
  * @projectName office-user
- * @description: SwaggerAPI  访问地址(http://localhost:8090/swagger-ui.html)
+ * @description: SwaggerAPI配置类  访问地址(http://localhost:8090/swagger-ui.html)
  * @date 2019.06.1.000117:22
  */
 @Configuration
