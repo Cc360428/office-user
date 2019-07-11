@@ -11,6 +11,20 @@ public class Login {
     private String account;
     private String password;
 
+
+    @Override
+    public String toString() {
+        return "Login{" +
+                "account='" + account + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+
+    public Login(String account, String password) {
+        this.account = account;
+        this.password = password;
+    }
+
     public String getAccount() {
         return account;
     }
@@ -44,11 +58,6 @@ public class Login {
     @Override
     protected Object clone() throws CloneNotSupportedException {
         return super.clone();
-    }
-
-    @Override
-    public String toString() {
-        return super.toString();
     }
 
     @Override

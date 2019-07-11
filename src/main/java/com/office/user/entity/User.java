@@ -33,6 +33,9 @@ public class User {
 
     private String updateName;
 
+
+
+
     @Override
     public String toString() {
         return "User{" +
@@ -49,6 +52,21 @@ public class User {
                 ", createName='" + createName + '\'' +
                 ", updateName='" + updateName + '\'' +
                 '}';
+    }
+
+    public User(Integer id, String account, String mobile, String email, String password, String salt, Date createTime, String token, Integer isDelete, Date updateTime, String createName, String updateName) {
+        this.id = id;
+        this.account = account;
+        this.mobile = mobile;
+        this.email = email;
+        this.password = password;
+        this.salt = salt;
+        this.createTime = createTime;
+        this.token = token;
+        this.isDelete = isDelete;
+        this.updateTime = updateTime;
+        this.createName = createName;
+        this.updateName = updateName;
     }
 
     public Integer getId() {
